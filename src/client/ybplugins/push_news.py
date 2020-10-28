@@ -62,25 +62,23 @@ class News:
         rss_source = self.rss[source]
         print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
               + "检查RSS源：{}".format(rss_source["name"]))
-        if rss_source["name"] != '国服B站明日方舟动态' :
-            try:
-                async with aiohttp.ClientSession() as session:
-                    async with session.get(rss_source["source"], headers=rss_source.get("headers")) as response:
-                        code = response.status
-                        if code != 200:
-                            print("rss源错误：{}，返回值：{}".format(
-                                rss_source["name"], code))
-                            return None
-                        res = await response.text()
-            except aiohttp.client_exceptions.ClientConnectionError:
-                print("rss源连接错误："+rss_source["name"])
-                return None
-            except Exception as e:
-                print("未知错误{} {}".format(type(e).__name__, e))
-                return None
-            feed = feedparser.parse(res)
-        else:
-            feed = feedparser.parse(rss_source["source"])
+        try:
+            conn = aiohttp.TCPConnector(verify_ssl = False)
+            async with aiohttp.ClientSession(conn = aiohttp.TCPConnector(verify_ssl=False)) as session:
+                async with session.get(rss_source["source"], headers=rss_source.get("headers")) as response:
+                    code = response.status
+                    if code != 200:
+                        print("rss源错误：{}，返回值：{}".format(
+                            rss_source["name"], code))
+                        return None
+                    res = await response.text()
+        except aiohttp.client_exceptions.ClientConnectionError:
+            print("rss源连接错误："+rss_source["name"])
+            return None
+        except Exception as e:
+            print("未知错误{} {}".format(type(e).__name__, e))
+            return None
+        feed = feedparser.parse(res)
         print(feed)
         if feed["bozo"]:
             print("rss源解析错误："+rss_source["name"])
