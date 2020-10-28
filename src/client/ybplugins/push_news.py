@@ -49,6 +49,12 @@ class News:
                 "source": "http://rsshub.app.cdn.cloudflare.net/bilibili/user/dynamic/353840826",
                 "headers": {"host": "rsshub.app"},
                 "pattern": "{title}\n{link}",
+            },
+            "news_cn_arknights": {
+                "name": '国服B站明日方舟动态',
+                "source": "http://rsshub.app.cdn.cloudflare.net/bilibili/user/dynamic/161775300",
+                "headers": {"host": "rsshub.app"},
+                "pattern": "{title}\n{link}",
             }
         }
 
