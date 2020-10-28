@@ -52,7 +52,7 @@ class News:
             },
             "news_cn_arknights": {
                 "name": '国服B站明日方舟动态',
-                "source": "https://rsshub.app/bilibili/user/dynamic/161775300",
+                "source": "http://rsshub.app.cdn.cloudflare.net/bilibili/user/dynamic/161775300",
                 "headers": {"host": "rsshub.app"},
                 "pattern": "{title}\n{link}",
             }
