@@ -79,7 +79,6 @@ class News:
             print("未知错误{} {}".format(type(e).__name__, e))
             return None
         feed = feedparser.parse(res)
-        print(feed)
         if feed["bozo"]:
             print("rss源解析错误："+rss_source["name"])
             return None
