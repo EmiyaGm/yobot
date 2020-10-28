@@ -64,7 +64,7 @@ class News:
               + "检查RSS源：{}".format(rss_source["name"]))
         try:
             conn = aiohttp.TCPConnector(verify_ssl = False)
-            async with aiohttp.ClientSession(conn = aiohttp.TCPConnector(verify_ssl=False)) as session:
+            async with aiohttp.ClientSession(connector = conn) as session:
                 async with session.get(rss_source["source"], headers=rss_source.get("headers")) as response:
                     code = response.status
                     if code != 200:
