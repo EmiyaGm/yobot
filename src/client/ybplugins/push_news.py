@@ -52,7 +52,7 @@ class News:
             },
             "news_cn_arknights": {
                 "name": '国服B站明日方舟动态',
-                "source": "http://rsshub.app.cdn.cloudflare.net/bilibili/user/dynamic/161775300",
+                "source": "http://rsshub.app/bilibili/user/dynamic/161775300",
                 "headers": {"host": "rsshub.app"},
                 "pattern": "{title}\n{link}",
             }
@@ -78,6 +78,7 @@ class News:
             print("未知错误{} {}".format(type(e).__name__, e))
             return None
         feed = feedparser.parse(res)
+        print(feed)
         if feed["bozo"]:
             print("rss源解析错误："+rss_source["name"])
             return None
