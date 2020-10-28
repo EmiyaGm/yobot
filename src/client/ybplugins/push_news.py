@@ -72,6 +72,7 @@ class News:
                         return None
                     res = await response.text()
         except aiohttp.client_exceptions.ClientConnectionError:
+            print(aiohttp.client_exceptions.ClientConnectionError)
             print("rss源连接错误："+rss_source["name"])
             return None
         except Exception as e:
