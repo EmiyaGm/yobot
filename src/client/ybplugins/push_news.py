@@ -55,6 +55,11 @@ class News:
                 "source": "http://localhost:1200/bilibili/user/dynamic/161775300",
                 # "headers": {"host": "rsshub.app"},
                 "pattern": "{title}\n{link}",
+            },
+            'test_cn_Emiyagm': {
+                "name": "B站动态RSS测试",
+                "source": "http://localhost:1200/bilibili/user/dynamic/10053496",
+                "pattern": "{title}\n{link}",
             }
         }
 
