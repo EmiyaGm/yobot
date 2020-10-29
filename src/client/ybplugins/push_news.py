@@ -33,26 +33,26 @@ class News:
         self.rss = {
             "news_jp_twitter": {
                 "name": "日服推特",
-                "source": "http://rsshub.app.cdn.cloudflare.net/twitter/user/priconne_redive",
+                "source": "http://localhost:1200/twitter/user/priconne_redive",
                 # headers: 可选，附加请求头
-                "headers": {"host": "rsshub.app"},
+                # "headers": {"host": "rsshub.app"},
                 "pattern": "{title}\n链接：{link}",
             },
             "news_jp_official": {
                 "name": "日服官网",
-                "source": "http://rsshub.app.cdn.cloudflare.net/pcr/news",
-                "headers": {"host": "rsshub.app"},
+                "source": "http://localhost:1200/pcr/news",
+                # "headers": {"host": "rsshub.app"},
                 "pattern": "{title}\n{link}",
             },
             "news_cn_bilibili": {
                 "name": "国服B站动态",
-                "source": "http://rsshub.app.cdn.cloudflare.net/bilibili/user/dynamic/353840826",
-                "headers": {"host": "rsshub.app"},
+                "source": "http://localhost:1200/bilibili/user/dynamic/353840826",
+                # "headers": {"host": "rsshub.app"},
                 "pattern": "{title}\n{link}",
             },
             "news_cn_arknights": {
                 "name": '国服B站明日方舟动态',
-                "source": "https://rsshub.app/bilibili/user/dynamic/161775300",
+                "source": "http://localhost:1200/bilibili/user/dynamic/161775300",
                 # "headers": {"host": "rsshub.app"},
                 "pattern": "{title}\n{link}",
             }
